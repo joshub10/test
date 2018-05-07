@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd">
+	 
+	<context:component-scan base-package="com.example.demo"></context:component-scan>
+	
+	<context:annotation-config></context:annotation-config>
+	
+	<bean id = "per" class = "com.example.demo.Persona2" >
+		
+	</bean>
+	
+<!-- 
+	<bean id = "direccionId" class = "com.example.demo.Direccion" scope="prototype">
+		<constructor-arg type = "java.lang.String" value="Avda. America"/>
+	</bean>
+
+	<bean id = "miProducto" class = "com.example.demo.Producto">
+   		<constructor-arg type = "java.lang.String" value="Producto especial"/>
+   	</bean>
+	
+	 -->
+	<bean id="persona2" class="com.example.demo.Persona" scope="prototype" 
+			init-method = "start"
+			destroy-method = "destroy">
+			
+		<constructor-arg ref="direccion" />
+			
+		<!--  
+		<constructor-arg type="java.lang.String"  value="OOOOOO" />
+		<property name = "nombre" value = "Zara" />
+		-->
+<!-- 
+		<constructor-arg type = "java.lang.String" value="Pepe"/>
+		
+		<property name="direccion" ref="direccionId" />
+		
+ -->
+	</bean>
+	
+	
+	
+	<bean id = "direccion1" class = "com.example.demo.Direccion" scope="prototype">
+		<constructor-arg type = "java.lang.String" value="Avda. America11"/>
+		<property name = "dir" value = "Avda. America 1100" />
+	</bean>
+	
+	<bean id = "direccion2" class = "com.example.demo.Direccion" scope="prototype">
+		
+		<property name = "dir" value = "Avda. America 0000" />
+	</bean>
+<!-- 
+	<bean id="persona3" class="com.example.demo.Persona" scope="prototype" 
+			init-method = "start"
+			destroy-method = "destroy">
+			
+		<constructor-arg type = "java.lang.String" value="Pepe"/>
+		
+		 <property name = "direccion">
+         	<bean id = "myDir" class = "com.example.demo.Direccion">
+         		<constructor-arg type = "java.lang.String" value="Mi direccion"/>
+         	</bean>
+      	</property>
+      	
+      	<property name = "productos">
+         <list>
+            
+            <value>Producto11</value>
+            <value>Producto12</value>
+            <value><null/></value>
+            <ref bean="miProducto" />
+         </list>
+      </property>
+      
+      
+	</bean>
+
+
+	 -->
+		
+</beans>
